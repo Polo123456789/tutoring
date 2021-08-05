@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Flow control</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/night.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Flow control</h1>
+</section>
+
+<section>
+<section id="statements" class="title-slide slide level1">
+<h1>Statements</h1>
+
+</section>
+<section id="definition" class="slide level2">
+<h2>Definition</h2>
+<blockquote>
+<p>Statements are fragments of a C++ program that are executed in sequence.</p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+<p>Examples of <code>statements</code> are:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">int</span> i = <span class="dv">0</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>i = <span class="dv">1</span>;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;The value is: &quot;</span> &lt;&lt; i &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>foo();</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>; <span class="co">// Empty statement</span></span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<p>They can also be compound. For that you should enclose in braces a series of statements:</p>
+<p>The following is a single compound statement:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>{</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    <span class="dt">int</span> i = <span class="dv">0</span>;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;The value is: &quot;</span> &lt;&lt; i &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>}</span></code></pre></div>
+</section></section>
+<section>
+<section id="selection-statements" class="title-slide slide level1">
+<h1>Selection statements</h1>
+
+</section>
+<section id="definition-1" class="slide level2">
+<h2>Definition</h2>
+<blockquote>
+<p>Selection statements choose between one of several flows of control.</p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+<p>This means that they, based on some condition or value, change which statements will be executed.</p>
+<p>There are two types of selection statements:</p>
+</section>
+<section id="if" class="slide level2">
+<h2><code>if</code></h2>
+<p>This one picks one of two paths based on a boolean condition.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="structure">Structure</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="cf">if</span> (condition)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    statement</span></code></pre></div>
+<p>If the condition is <code>true</code>, the statement will be executed.</p>
+</section>
+<section class="slide level2">
+
+<p>You can add an <code>else</code> clause to have an statement executed in case that the condition is <code>false</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="cf">if</span> (condition)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    statement</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="cf">else</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    statement</span></code></pre></div>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<p><a href="https://tio.run/##hVNNbxoxED2XXzGihyYSIXBNKIfccumhyqVSD3i9w2LhHa/sMRRF/HY6swtbIbKpD7b2Y968N@/ZNs2D9Yaq01dH1ucSYeFC4oimXp4cMdTG0d39@whkuTXcccx4D92zrsTl05MNmWGxgPHbxiXwjhD2znsoEPAP2sxY/qbxc1t0HF1jDSD9xBrrAiPwxrBseABrSBGTo8rLwYblH@IEHEIPP7qFepGzDPRNd3DcIe7NAYyXPUFOCO/HFqGntjY@DXJ7QWu0SLBEbu2SR1MKq57EbcmvkGEfsi@lu6Ot7udByUmB@zlNoJCSFvma0Xw2PPYfWUeVwETBqxvvrGOvA0uCCGJjgCIEYUnpIx9m/zG09VJJfuTn8HhWs5Wqk/YYm4hKxSRoJzuR2XsIYmsEOpMf93BXa3xJkqblhr0k1MF3mD33YjoujmC5BDcsTA3RQOEOCTZmh2ADlY5dIDVmi5o5MEWQL4FwCm@amiGOfa0KFu3r7CWVYDdot8pKseR1BGM5i/QDVNpyCO4g5Mx5MNN/mgG9RnX05fERLvyroI0Uf/VKTeYVsClkvFRKd7nYnY65/mT0TRQGGCcQIkgedm2IsW740KIqFCZu4zn9LMrqSULschxIBIlKpb2PgeVyhho16NXlsg3bq7m6aO3NPZ5O878" title="C++ (clang) – Try It Online">Try it online!</a></p>
+</section>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+</section>
+<section class="slide level2">
+
+<p>What will be the output of this program if the user wrote <code>10</code>? (Remember that <code>&amp;&amp;</code> is a logical <code>and</code>, and <code>||</code> is a logical <code>or</code>).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>    <span class="cf">if</span> ((<span class="kw">false</span> == <span class="kw">false</span>) &amp;&amp; (<span class="kw">false</span> || <span class="kw">true</span>)) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;A</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    }</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    <span class="dt">int</span> i = <span class="dv">0</span>;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    <span class="cf">if</span> (<span class="bu">std::</span>cin &gt;&gt; i) {</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;B</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    }</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>    <span class="cf">if</span> (i &lt; <span class="dv">5</span>) {</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;C</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>    }</span></code></pre></div>
+<p><a href="https://tio.run/##dY1BCoMwEEX3OcXHgphFwS660Rhoe41uQoxlIEYxcVU9e2q1lELxr4aZee/rvj9qq9wjHshpO9YGgjofBqNaGckFtIpcxp8MS6hBljXKeoOqwjpwpCk@u2lCGEbDObb3d3yoi0J3Y4AQSC53l5TrbWabcWkgVMjLb8FGkIOUoH3V9U@1sASB8z5z@2FmFuMpfwE" title="C++ (clang) – Try It Online">Try it online!</a></p>
+</section>
+<section class="slide level2">
+
+<h3 id="extra">Extra</h3>
+<p>You can add the <code>constexpr</code> specifier. In that case, the code that will be compiled will depend on the condition.</p>
+</section>
+<section class="slide level2">
+
+<p>For example, in this case, if <code>debug_enabled</code> is <code>true</code>, the logger will work as expected. If it is <code>false</code>, then the function will be empty, and the overhead of the call will be eliminated in the final executable.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="dt">void</span> log(<span class="at">const</span> <span class="dt">char</span>* t) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    <span class="cf">if</span> <span class="kw">constexpr</span> (debug_enabled) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>        <span class="bu">std::</span>clog &lt;&lt; t;</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>    }</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>}</span></code></pre></div>
+<p>You can see that comparing the generated code on both cases <a href="https://godbolt.org/z/86oWq9x49">here</a>.</p>
+</section>
+<section id="switch" class="slide level2">
+<h2><code>switch</code></h2>
+<p>This one will pick one of many paths depending on a value. Under the hood, it is implemented as a jump table.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="structure-1">Structure</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="cf">switch</span> (condition) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="cf">case</span> constexpr_value:</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>    statements</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>    <span class="cf">break</span>; <span class="co">// break will jump outside of the switch.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>           <span class="co">// If you dont add it the execution will fall through</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>           <span class="co">// to the next cases.</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<p>You can add a <code>default</code> case, that will be executed if the value from <code>condition</code> doesn’t match any of the values you gave it:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="dt">int</span> i = <span class="dv">10</span>;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="co">// ...</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="cf">switch</span> (i) {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    <span class="cf">case</span> <span class="dv">1</span>:</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>        <span class="co">// .. Do something</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>        <span class="cf">break</span>;</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>    <span class="cf">case</span> <span class="dv">2</span>:</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>        <span class="co">// .. Do something else</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>        <span class="cf">break</span>;</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>    <span class="cf">default</span>:</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;The value is not in the expected range</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="example-1">Example</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Do you want to delete this file? (&#39;Y&#39; for yes, &#39;N&#39; for no, &quot;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>             <span class="st">&quot;&#39;A&#39; for yes to all)</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="dt">char</span> option = <span class="ch">&#39;</span><span class="sc">\0</span><span class="ch">&#39;</span>;</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a><span class="bu">std::</span>cin &gt;&gt; option;</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a><span class="cf">switch</span> (option) {</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>    <span class="cf">case</span> <span class="ch">&#39;Y&#39;</span>:</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>        <span class="co">// Delete the file</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>        <span class="cf">break</span>;</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>    <span class="cf">case</span> <span class="ch">&#39;N&#39;</span>:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>        <span class="co">// Dont delete this file</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>        <span class="cf">break</span>;</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>    <span class="cf">case</span> <span class="ch">&#39;A&#39;</span>:</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>        <span class="co">// Delete the rest of the files</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a>        <span class="cf">break</span>;</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a>    <span class="cf">default</span>:</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Please select one of (&#39;Y&#39;, &#39;N&#39;, &#39;A&#39;): &quot;</span>;</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a>        <span class="co">// Read again and repeat</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="exercise-1">Exercise</h3>
+</section>
+<section class="slide level2">
+
+<p>What will be the output of this program if the user wrote <code>1</code>?</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="dt">int</span> main(){</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>    <span class="dt">int</span> option = <span class="dv">10</span>;</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>    <span class="cf">switch</span> (option) {</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>        <span class="cf">case</span> <span class="dv">1</span>: </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>            <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;A</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>        <span class="cf">case</span> <span class="dv">2</span>:</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>            <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;B</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>        <span class="cf">default</span>:</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a>            <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;C</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>    }</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>    <span class="bu">std::</span>cin &gt;&gt; option;</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a>    <span class="cf">switch</span> (option) {</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a>        <span class="cf">case</span> <span class="dv">1</span>: </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true"></a>            <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;A</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true"></a>        <span class="cf">case</span> <span class="dv">2</span>:</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true"></a>            <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;B</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true"></a>        <span class="cf">default</span>:</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true"></a>            <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;C</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true"></a>    }</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true"></a>}</span></code></pre></div>
+<p><a href="https://tio.run/##1Y/BDoIwEETv/YoNXuBgIh4LNlF/w0tTqm5Sto0s8WD49iqFkHDh7tx25k2yY0LYG6fpEeMOybi@sVCj7/hldauEQGJoNVJefAT8NN4@MHqCE5SHSiS3eyObJ@RTUsDEjjK6s1BKWIyEcyOl8T1DXUN2vlFWrQtHucFfVnxj77p3vFW4LoVhfjfFSKDUPObvdgwixvIL" title="C++ (clang) – Try It Online">Try it online!</a></p>
+</section>
+<section class="slide level2">
+
+<p>Having a fall through is not usually what we want, that is why the compiler warns us about it. But there may be cases where we do want for it to fall through. For those cases, we have the C++17 attribute <code>[[fallthrough]]</code>.</p>
+</section>
+<section class="slide level2">
+
+<p>Taking that into account, the corrected <code>switch</code> would be:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="cf">switch</span> (option) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>    <span class="cf">case</span> <span class="dv">1</span>: </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;A</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>        [[<span class="at">fallthrough</span>]];</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>    <span class="cf">case</span> <span class="dv">2</span>:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;B</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>        [[<span class="at">fallthrough</span>]];</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>    <span class="cf">default</span>:</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;C</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>}</span></code></pre></div>
+</section></section>
+<section id="iteration-statements" class="title-slide slide level1">
+<h1>Iteration statements</h1>
+
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

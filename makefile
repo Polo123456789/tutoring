@@ -4,7 +4,7 @@ SOURCES := $(call rwildcard, ., *.md)
 PRESENTATIONS := $(patsubst %.md, %.html, $(SOURCES))
 
 CC := pandoc
-FLAGS := -f markdown -t revealjs -s
+FLAGS := -f markdown -t revealjs -s -V theme=night
 
 CLEAN_CMD := del
 
