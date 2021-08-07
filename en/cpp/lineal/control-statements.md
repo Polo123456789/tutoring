@@ -39,8 +39,8 @@ The following is a single compound statement:
 Selection statements
 ====================
 
-Definition
-----------
+Use case
+--------
 
 > Selection statements choose between one of several flows of control.
 
@@ -263,4 +263,126 @@ switch (option) {
 Iteration statements
 ====================
 
+Use case
+--------
 
+> Iteration statements repeatedly execute some code.
+
+## `while` and `do while`
+
+---
+
+### Structure
+
+```cpp
+while (condition)
+    statement
+```
+
+```cpp
+do
+    statement
+while (condition);
+```
+
+## `for`
+
+---
+
+### Structure
+
+```cpp
+for (init-statement; condition; expression)
+    statement
+```
+
+Where:
+
+* ***init-statement***: Will initialize the variables used for the ***condition***.
+* ***condition***: While this value is true, the loop will execute.
+* ***expression***: An expression, that is usually used to change the variables
+  that affect ***condition***.
+
+---
+
+### Note
+
+***init-statement***, ***condition*** and  ***expression*** are all optional.
+You can omit them to create an infinite loop:
+
+```cpp
+for (;;;) {
+    std::cout << "I will never stop\n";
+}
+```
+
+## Jumping out
+
+---
+
+To jump out of the loop you can use *jump statements*. This ones are:
+
+* `break`: Works like in the switch statement, it will completely break out of
+  the statement.
+* `continue`: Will skip the rest of the inner statement and continue the loop.
+* We will see about `return` when we talk about functions, and `goto` will be
+  part of the homework.
+
+## Exercise
+
+Predict the output of the following programs:
+
+---
+
+```cpp
+int i = 0;
+while (i < 10)
+    std::cout << i << '\n';
+    i++;
+```
+
+[Try it online!](https://tio.run/##HYsxDsMgEAT7e8VKKWzLsuS0huQlaRCg5CR8WBiSIvLbCc4WW8zO2m2bbDDyrBcWG4rz0Bz3nLxZ70QsGath6d@R3YBvPQHjhlnR58XBo2doXOeB0LJntyw2lgytm9aqe0in/huPo6KafC5JzvtRfw "C++ (clang) – Try It Online")
+
+---
+
+```cpp
+for (int i = 0; i < 20; i += 2) {
+    std::cout << i << '\n';
+}
+```
+
+[Try it online!](https://tio.run/##HYvBCsIwEETv@YoBD62IID22W7/ES0iiLLSbkm68iN8et87lDcObsG3XsHh5tRNLWGpMIM67luTXu3MsitWz9O/M8YxPe@aC/lgZM26TgTD8eZkxmOFg2TWOY8hVQXQohO4h3eS@rSStRexp/Qc "C++ (clang) – Try It Online")
+
+---
+
+And now is your turn to apply everything and do a program. This is what it
+should do:
+
+It should read two numbers (`a` and `b`, you can assume that the user will
+always input integers, and `a` will always be smaller than `b`).
+
+For the numbers in the range $[a, b)$ it should print the number as text if it
+is less than or equal to 9. And if it is bigger, it should print if it is odd
+or even.
+
+After that, it should ask the user if he wants to use the program again. (You
+can assume that the user will always enter a `y` or a `n`).
+
+---
+
+Line starting with a `>` are user input.
+
+```
+> 2 5
+two
+three
+four
+Do you want to use the program again? [y/n]
+> y
+> 9 12
+nine
+even
+odd
+Do you want to use the program again? [y/n]
+> n
+```

@@ -124,8 +124,8 @@
 <h1>Selection statements</h1>
 
 </section>
-<section id="definition-1" class="slide level2">
-<h2>Definition</h2>
+<section id="use-case" class="slide level2">
+<h2>Use case</h2>
 <blockquote>
 <p>Selection statements choose between one of several flows of control.</p>
 </blockquote>
@@ -303,10 +303,106 @@
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>        <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;C</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>}</span></code></pre></div>
 </section></section>
+<section>
 <section id="iteration-statements" class="title-slide slide level1">
 <h1>Iteration statements</h1>
 
 </section>
+<section id="use-case-1" class="slide level2">
+<h2>Use case</h2>
+<blockquote>
+<p>Iteration statements repeatedly execute some code.</p>
+</blockquote>
+</section>
+<section id="while-and-do-while" class="slide level2">
+<h2><code>while</code> and <code>do while</code></h2>
+</section>
+<section class="slide level2">
+
+<h3 id="structure-2">Structure</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="cf">while</span> (condition)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>    statement</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="cf">do</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>    statement</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="cf">while</span> (condition);</span></code></pre></div>
+</section>
+<section id="for" class="slide level2">
+<h2><code>for</code></h2>
+</section>
+<section class="slide level2">
+
+<h3 id="structure-3">Structure</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="cf">for</span> (init-statement; condition; expression)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>    statement</span></code></pre></div>
+<p>Where:</p>
+<ul>
+<li><strong><em>init-statement</em></strong>: Will initialize the variables used for the <strong><em>condition</em></strong>.</li>
+<li><strong><em>condition</em></strong>: While this value is true, the loop will execute.</li>
+<li><strong><em>expression</em></strong>: An expression, that is usually used to change the variables that affect <strong><em>condition</em></strong>.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="note">Note</h3>
+<p><strong><em>init-statement</em></strong>, <strong><em>condition</em></strong> and <strong><em>expression</em></strong> are all optional. You can omit them to create an infinite loop:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="cf">for</span> (;;;) {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;I will never stop</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section id="jumping-out" class="slide level2">
+<h2>Jumping out</h2>
+</section>
+<section class="slide level2">
+
+<p>To jump out of the loop you can use <em>jump statements</em>. This ones are:</p>
+<ul>
+<li><code>break</code>: Works like in the switch statement, it will completely break out of the statement.</li>
+<li><code>continue</code>: Will skip the rest of the inner statement and continue the loop.</li>
+<li>We will see about <code>return</code> when we talk about functions, and <code>goto</code> will be part of the homework.</li>
+</ul>
+</section>
+<section id="exercise-2" class="slide level2">
+<h2>Exercise</h2>
+<p>Predict the output of the following programs:</p>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="dt">int</span> i = <span class="dv">0</span>;</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="cf">while</span> (i &lt; <span class="dv">10</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; i &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>;</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>    i++;</span></code></pre></div>
+<p><a href="https://tio.run/##HYsxDsMgEAT7e8VKKWzLsuS0huQlaRCg5CR8WBiSIvLbCc4WW8zO2m2bbDDyrBcWG4rz0Bz3nLxZ70QsGath6d@R3YBvPQHjhlnR58XBo2doXOeB0LJntyw2lgytm9aqe0in/huPo6KafC5JzvtRfw" title="C++ (clang) – Try It Online">Try it online!</a></p>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">20</span>; i += <span class="dv">2</span>) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>    <span class="bu">std::</span>cout &lt;&lt; i &lt;&lt; <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>;</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>}</span></code></pre></div>
+<p><a href="https://tio.run/##HYvBCsIwEETv@YoBD62IID22W7/ES0iiLLSbkm68iN8et87lDcObsG3XsHh5tRNLWGpMIM67luTXu3MsitWz9O/M8YxPe@aC/lgZM26TgTD8eZkxmOFg2TWOY8hVQXQohO4h3eS@rSStRexp/Qc" title="C++ (clang) – Try It Online">Try it online!</a></p>
+</section>
+<section class="slide level2">
+
+<p>And now is your turn to apply everything and do a program. This is what it should do:</p>
+<p>It should read two numbers (<code>a</code> and <code>b</code>, you can assume that the user will always input integers, and <code>a</code> will always be smaller than <code>b</code>).</p>
+<p>For the numbers in the range <span class="math inline">[<em>a</em>, <em>b</em>)</span> it should print the number as text if it is less than or equal to 9. And if it is bigger, it should print if it is odd or even.</p>
+<p>After that, it should ask the user if he wants to use the program again. (You can assume that the user will always enter a <code>y</code> or a <code>n</code>).</p>
+</section>
+<section class="slide level2">
+
+<p>Line starting with a <code>&gt;</code> are user input.</p>
+<pre><code>&gt; 2 5
+two
+three
+four
+Do you want to use the program again? [y/n]
+&gt; y
+&gt; 9 12
+nine
+even
+odd
+Do you want to use the program again? [y/n]
+&gt; n</code></pre>
+</section></section>
     </div>
   </div>
 
